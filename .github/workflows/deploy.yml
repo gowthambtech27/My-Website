@@ -1,0 +1,41 @@
+name: Deploy My Website to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # deploy whenever code is pushed to main branch
+  workflow_dispatch:  # allows manual trigger from Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # (Optional) If you ever add a build process, put it here
+      # - name: Build project
+      #   run: |
+      #     npm install
+      #     npm run build
+
+      - name: Upload website files
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .  # Deploy everything from root folder
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
