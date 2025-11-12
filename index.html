@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Coming Soon!</h1>
+        <p>Our website is under construction. Stay tuned for something amazing.</p>
+        <div class="countdown">
+            <div><span id="days">00</span>Days</div>
+            <div><span id="hours">00</span>Hours</div>
+            <div><span id="minutes">00</span>Minutes</div>
+            <div><span id="seconds">00</span>Seconds</div>
+        </div>
+    </div>
+
+<script>
+    // Set countdown duration (in milliseconds) — here 7 days
+    const duration = 7 * 24 * 60 * 60 * 1000; // 7 days in ms
+    const countdownDate = new Date().getTime() + duration; // End time = now + duration
+
+    const countdown = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days.toString().padStart(2, '0');
+        document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+        document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+        document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+
+        if (distance < 0) {
+            clearInterval(countdown);
+            document.querySelector(".container").innerHTML = "<h1>🎉 We're Live!</h1>";
+        }
+    }, 1000);
+</script>
+
+
+</body>
+</html>
