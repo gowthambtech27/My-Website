@@ -1,10 +1,10 @@
-name: Deploy My Website to GitHub Pages
+name: Deploy Angular Portfolio to Server
 
 on:
   push:
     branches:
-      - main  # deploy whenever code is pushed to main branch
-  workflow_dispatch:  # allows manual trigger from Actions tab
+      - main   # Runs when you push to main
+  workflow_dispatch:  # Allow manual trigger
 
 permissions:
   contents: read
@@ -21,21 +21,31 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
     steps:
+      # 1️⃣ Checkout your repository
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # (Optional) If you ever add a build process, put it here
-      # - name: Build project
-      #   run: |
-      #     npm install
-      #     npm run build
+      # 2️⃣ Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'  # or 18/22, depending on your Angular version
 
-      - name: Upload website files
+      # 3️⃣ Install dependencies and build Angular
+      - name: Install and Build
+        run: |
+          npm ci
+          npm run build -- --configuration=production --base-href /${{ github.event.repository.name }}/
+
+      # 4️⃣ Upload build output folder
+      - name: Upload build files
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .  # Deploy everything from root folder
+          path: dist/${{ github.event.repository.name }}  # Adjust this if your dist folder name differs
 
+      # 5️⃣ Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
