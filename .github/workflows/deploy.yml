@@ -1,4 +1,4 @@
-name: Deploy Angular Portfolio to Server
+name: Deploy Angular Portfolio to GitHub Pages
 
 on:
   push:
@@ -33,17 +33,18 @@ jobs:
         with:
           node-version: '20'
 
-      # 3️⃣ Install and Build Angular
+      # 3️⃣ Install and Build Angular App
       - name: Install and Build Angular App
         run: |
           npm ci
           npm run build -- --configuration=production --base-href /${{ github.event.repository.name }}/
 
-      # 4️⃣ Detect Angular dist path automatically
+      # 4️⃣ Detect Angular dist path (fixed quoting)
       - name: Detect Angular dist path
         id: detect-dist
         run: |
-          echo "DIST_PATH=$(node -p \"require('./angular.json').projects[Object.keys(require('./angular.json').projects)[0]].architect.build.options.outputPath\")" >> $GITHUB_ENV
+          DIST_PATH=$(node -e "const a=require('./angular.json');console.log(a.projects[Object.keys(a.projects)[0]].architect.build.options.outputPath)")
+          echo "DIST_PATH=$DIST_PATH" >> $GITHUB_ENV
           echo "Detected output path: $DIST_PATH"
 
       # 5️⃣ Upload build folder
