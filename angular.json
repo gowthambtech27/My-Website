@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "my-portfolio": {
+    "Personal": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/my-portfolio",
+            "outputPath": "dist/Personal",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "my-portfolio:build:production"
+              "buildTarget": "personal:build:production"
             },
             "development": {
-              "buildTarget": "my-portfolio:build:development"
+              "buildTarget": "personal:build:development"
             }
           },
           "defaultConfiguration": "development"
