@@ -1,0 +1,42 @@
+/* Skills Section with Icons */
+.skills {
+  background: transparent;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.skill-card {
+  padding: 30px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.skill-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.skill-name {
+  font-size: 14px;
+  color: #fff;
+  font-weight: normal;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+  
+  .skill-icon {
+    font-size: 36px;
+  }
+}

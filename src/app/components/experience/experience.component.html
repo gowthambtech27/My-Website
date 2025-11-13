@@ -1,0 +1,61 @@
+<section class="experience section" id="experience">
+  <div class="container">
+    <h2 class="section-title">Experience</h2>
+    <div class="experience-content">
+      <div class="experience-timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">{{ experience.period }}</div>
+          <div class="timeline-content">
+            <h3>{{ experience.position }}</h3>
+            <p class="timeline-company">{{ experience.company }} - {{ experience.location }}</p>
+            <p class="timeline-description">
+              {{ experience.description }}
+            </p>
+            <ul class="timeline-achievements">
+              <li *ngFor="let achievement of experience.achievements">{{ achievement }}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Education</div>
+          <div class="timeline-content">
+            <h3>B.Tech Information Technology</h3>
+            <p class="timeline-company">Kodaikanal Institute of Technology - Kodaikanal, TN</p>
+            <p class="timeline-description">
+              GPA: 7.34/10.00 | August 2010 – May 2014
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Key Focus Areas</div>
+          <div class="timeline-content">
+            <h3>Specializations</h3>
+            <div class="focus-areas">
+              <div class="focus-item">
+                <div class="focus-icon">🎨</div>
+                <h4>UI/UX Design</h4>
+                <p>Creating intuitive and beautiful user interfaces</p>
+              </div>
+              <div class="focus-item">
+                <div class="focus-icon">⚡</div>
+                <h4>Performance</h4>
+                <p>Optimizing applications for speed and efficiency</p>
+              </div>
+              <div class="focus-item">
+                <div class="focus-icon">📱</div>
+                <h4>Responsive Design</h4>
+                <p>Building mobile-first, cross-device experiences</p>
+              </div>
+              <div class="focus-item">
+                <div class="focus-icon">🔧</div>
+                <h4>Modern Frameworks</h4>
+                <p>Working with latest technologies and tools</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

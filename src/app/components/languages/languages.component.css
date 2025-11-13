@@ -1,0 +1,44 @@
+/* Simple Languages Section */
+.languages {
+  background: transparent;
+}
+
+.languages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.language-card {
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.language-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.language-name {
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 5px;
+  font-weight: normal;
+}
+
+.language-level {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 768px) {
+  .languages-grid {
+    grid-template-columns: 1fr;
+  }
+}

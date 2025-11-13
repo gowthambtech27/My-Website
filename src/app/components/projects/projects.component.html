@@ -1,0 +1,26 @@
+<section class="projects section" id="projects">
+  <div class="container">
+    <h2 class="section-title">My Projects</h2>
+    <p class="section-subtitle">Four innovative projects focused on environmental sustainability and waste management</p>
+    <div class="projects-grid">
+      <div class="project-card" *ngFor="let project of projects" [style.--project-color]="project.color">
+        <div class="project-header">
+          <div class="project-icon" [style.background-color]="project.color + '20'">
+            <span>{{ project.icon }}</span>
+          </div>
+          <h3 class="project-title">{{ project.title }}</h3>
+        </div>
+        <p class="project-description">{{ project.description }}</p>
+        <div class="project-technologies">
+          <span class="tech-tag" *ngFor="let tech of project.technologies">{{ tech }}</span>
+        </div>
+        <div class="project-footer">
+          <a href="#" class="project-link" [style.color]="project.color">
+            View Project →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
