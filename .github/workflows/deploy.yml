@@ -3,8 +3,8 @@ name: Deploy Angular Portfolio to Server
 on:
   push:
     branches:
-      - main   # Runs when you push to main
-  workflow_dispatch:  # Allow manual trigger
+      - main
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -31,21 +31,28 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'  # or 18/22, depending on your Angular version
+          node-version: '20'
 
-      # 3️⃣ Install dependencies and build Angular
-      - name: Install and Build
+      # 3️⃣ Install and Build Angular
+      - name: Install and Build Angular App
         run: |
           npm ci
           npm run build -- --configuration=production --base-href /${{ github.event.repository.name }}/
 
-      # 4️⃣ Upload build output folder
+      # 4️⃣ Detect Angular dist path automatically
+      - name: Detect Angular dist path
+        id: detect-dist
+        run: |
+          echo "DIST_PATH=$(node -p \"require('./angular.json').projects[Object.keys(require('./angular.json').projects)[0]].architect.build.options.outputPath\")" >> $GITHUB_ENV
+          echo "Detected output path: $DIST_PATH"
+
+      # 5️⃣ Upload build folder
       - name: Upload build files
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/${{ github.event.repository.name }}  # Adjust this if your dist folder name differs
+          path: ${{ env.DIST_PATH }}
 
-      # 5️⃣ Deploy to GitHub Pages
+      # 6️⃣ Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
