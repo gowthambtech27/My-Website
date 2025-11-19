@@ -5,7 +5,7 @@
     <div class="projects-grid">
       <div class="project-card" *ngFor="let project of projects" [style.--project-color]="project.color">
         <div class="project-header">
-          <div class="project-icon" [style.background-color]="project.color + '20'">
+          <div class="project-icon" [style.background-color]="project.color">
             <span>{{ project.icon }}</span>
           </div>
           <h3 class="project-title">{{ project.title }}</h3>
