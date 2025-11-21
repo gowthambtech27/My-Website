@@ -6,35 +6,43 @@ import { Component } from '@angular/core';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent {
-  projects = [
-    {
-      title: 'E-Waste Management',
-      description: 'A comprehensive platform for managing electronic waste collection, tracking, and recycling. Features real-time monitoring, user dashboard, and reporting system.',
-      technologies: ['Angular', 'TypeScript', 'REST API', 'Material Design'],
-      icon: '♻️',
-      color: '#ffff'
-    },
-    {
-      title: 'Plastic Recycling System',
-      description: 'Comprehensive platform for managing plastic waste, featuring automated material categorization, collection scheduling, and an integrated map to locate nearby recycling centers. Includes a data-driven analytics dashboard for monitoring recycling trends.',
-      technologies: ['Angular', 'Node.js', 'HighCharts', 'Chart.js'],
-      icon: '🔄',
-      color: '#fff'
-    },
-    {
-      title: 'Glass Waste Tracker',
-      description: 'Smart tracking system for glass waste collection and processing. Features mobile-responsive design, GPS integration, and automated notifications.',
-      technologies: ['Angular', 'TypeScript', 'REST API', 'Material Design'],
-      icon: '🍃',
-      color: '#ffff'
-    },
-    {
-      title: 'Battery Disposal Platform',
-      description: 'User-friendly platform for safe battery disposal and recycling. Includes educational resources, collection point finder, and environmental impact calculator.',
-      technologies: ['Angular', 'TypeScript', 'Leaflet Maps', 'Chart.js'],
-      icon: '🔋',
-      color: '#ffff'
-    }
-  ];
+ projects = [
+  {
+    title: 'E-Waste Recycling Platform',
+    description: 'A comprehensive system for managing electronic waste from collection to recycling. Features GPS tracking of collection, real-time monitoring, certificates of recycling, and material recovery reports.',
+    technologies: ['Angular', 'TypeScript', 'REST API', 'Material Design'],
+    icon: '♻️',
+    color: '#fff'
+  },
+  {
+    title: 'Plastic Waste Management System',
+    description: 'Platform for tracking and managing plastic waste. Includes automated categorization, collection scheduling, awareness campaigns, and analytics dashboard for recycling trends.',
+    technologies: ['Angular', 'Node.js', 'HighCharts', 'Chart.js'],
+    icon: '🔄',
+    color: '#fff'
+  },
+  {
+    title: 'Glass Waste Collection Tracker',
+    description: 'Smart system for monitoring glass waste collection and processing. Features mobile responsiveness, GPS-enabled collection tracking, and automated notifications for stakeholders.',
+    technologies: ['Angular', 'TypeScript', 'REST API', 'Material Design'],
+    icon: '🍃',
+    color: '#fff'
+  },
+  {
+    title: 'Battery Waste Disposal & Awareness',
+    description: 'User-friendly platform for safe battery disposal and recycling. Provides collection point locator, educational resources on environmental impact, and reporting tools for compliance.',
+    technologies: ['Angular', 'TypeScript', 'Leaflet Maps', 'Chart.js'],
+    icon: '🔋',
+    color: '#fff'
+  },
+  {
+    title: 'Circular Economy Analytics Dashboard',
+    description: 'Data-driven dashboard to monitor overall material recovery, recycling trends, and environmental impact metrics. Helps organizations meet compliance and track ESG goals.',
+    technologies: ['Angular', 'Node.js', 'HighCharts', 'D3.js'],
+    icon: '📊',
+    color: '#fff'
+  }
+];
+
 }
 
